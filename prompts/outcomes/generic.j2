@@ -1,0 +1,27 @@
+{# Generic Action Outcome Template #}
+Describe the outcome of the player's action in "The Age of AI: 2026."
+
+Action: {{ action }}
+
+Player state before action:
+- Energy: {{ energy }}%
+- Stress: {{ stress }}%
+- Bank: ${{ bank_account | currency }}
+
+{% if burnout_applied %}
+NOTE: Player is burned out. Efficiency was reduced.
+{% endif %}
+
+Results:
+{% for key, value in numerical_result.items() %}
+{% if value and value != 0 %}
+- {{ key }}: {{ value }}
+{% endif %}
+{% endfor %}
+
+Write a brief narrative description (1-2 sentences) of:
+1. What the player did during this week
+2. The concrete results (using the numbers above)
+3. How they feel about it
+
+Stay in the 2026 Silicon Valley setting. Be atmospheric but concise.
